@@ -1,0 +1,468 @@
+const units = {
+  A1: [
+    [
+      "Unité 1 – Bonjour !",
+      "Chào hỏi và giới thiệu bản thân",
+      "saluer, se présenter, alphabet",
+      "Je m’appelle Léa. J’habite à Hanoï. Je suis vietnamien(ne).",
+      "Je m’appelle = Tôi tên là; J’habite à = Tôi sống ở; enchanté(e) = rất vui được gặp.",
+    ],
+    [
+      "Unité 2 – Au quotidien",
+      "Sinh hoạt hằng ngày",
+      "heures, jours, verbes en -er",
+      "Je me lève à sept heures. Je travaille le lundi.",
+      "se lever = thức dậy; le matin = buổi sáng; travailler = làm việc.",
+    ],
+    [
+      "Unité 3 – En ville",
+      "Hỏi đường và địa điểm",
+      "lieux, prépositions, il y a",
+      "Où est la gare ? La banque est à côté du café.",
+      "la gare = nhà ga; à côté de = bên cạnh; tout droit = đi thẳng.",
+    ],
+    [
+      "Unité 4 – À table",
+      "Đồ ăn và gọi món",
+      "aliments, articles partitifs",
+      "Je voudrais un café et une salade, s’il vous plaît.",
+      "je voudrais = tôi muốn; l’eau = nước; l’addition = hóa đơn.",
+    ],
+  ],
+  A2: [
+    [
+      "Unité 1 – Souvenirs",
+      "Kể về quá khứ",
+      "passé composé, imparfait (initiation)",
+      "Hier, j’ai visité le musée avec mes amis.",
+      "hier = hôm qua; visiter = tham quan; un souvenir = kỷ niệm.",
+    ],
+    [
+      "Unité 2 – Projets",
+      "Dự định và kế hoạch",
+      "futur proche, expressions de temps",
+      "Ce week-end, nous allons partir à la mer.",
+      "prévoir = dự định; bientôt = sớm; le week-end = cuối tuần.",
+    ],
+    [
+      "Unité 3 – Se loger",
+      "Nhà ở và cuộc sống",
+      "logement, comparatifs",
+      "Cet appartement est plus lumineux que l’autre.",
+      "un appartement = căn hộ; lumineux = sáng sủa; louer = thuê.",
+    ],
+    [
+      "Unité 4 – Santé et bien-être",
+      "Sức khỏe và lời khuyên",
+      "impératif, devoir / pouvoir",
+      "Tu dois dormir suffisamment et faire une pause.",
+      "se reposer = nghỉ ngơi; suffisamment = đủ; une habitude = thói quen.",
+    ],
+  ],
+  B1: [
+    [
+      "Unité 1 – Relations",
+      "Quan hệ và giao tiếp",
+      "pronoms relatifs qui / que / où",
+      "C’est une personne qui m’a beaucoup aidé.",
+      "une relation = mối quan hệ; faire confiance = tin tưởng; soutenir = hỗ trợ.",
+    ],
+    [
+      "Unité 2 – Travail",
+      "Công việc và học tập",
+      "conditionnel de politesse, discours",
+      "Je souhaiterais obtenir des renseignements sur ce poste.",
+      "un poste = vị trí; une candidature = hồ sơ ứng tuyển; compétent = có năng lực.",
+    ],
+    [
+      "Unité 3 – Société",
+      "Các vấn đề xã hội",
+      "connecteurs logiques, cause et conséquence",
+      "Puisque les transports sont pratiques, moins de gens prennent la voiture.",
+      "pourtant = tuy nhiên; puisque = bởi vì; en revanche = ngược lại.",
+    ],
+    [
+      "Unité 4 – Culture",
+      "Văn hóa và truyền thông",
+      "subjonctif (introduction), opinion",
+      "Il est important que chacun puisse s’exprimer.",
+      "une œuvre = tác phẩm; un avis = ý kiến; s’exprimer = bày tỏ.",
+    ],
+  ],
+  B2: [
+    [
+      "Unité 1 – Débattre",
+      "Tranh luận và bảo vệ quan điểm",
+      "nuance, concession, argumentation",
+      "Bien que cette solution soit coûteuse, elle présente des avantages.",
+      "bien que = mặc dù; toutefois = tuy nhiên; un enjeu = vấn đề then chốt.",
+    ],
+    [
+      "Unité 2 – Environnement",
+      "Môi trường và phát triển bền vững",
+      "hypothèses, conditionnel passé",
+      "Si nous avions mieux anticipé, nous aurions réduit les déchets.",
+      "durable = bền vững; les déchets = rác thải; sensibiliser = nâng cao nhận thức.",
+    ],
+    [
+      "Unité 3 – Médias",
+      "Truyền thông và thông tin",
+      "voix passive, discours rapporté",
+      "Cette information a été confirmée par plusieurs sources.",
+      "une source = nguồn; fiable = đáng tin; vérifier = kiểm chứng.",
+    ],
+    [
+      "Unité 4 – Monde professionnel",
+      "Thế giới nghề nghiệp",
+      "registre formel, synthèse",
+      "Je vous saurais gré de bien vouloir examiner ma demande.",
+      "veuillez trouver = xin vui lòng xem; une démarche = thủ tục; approfondi = chuyên sâu.",
+    ],
+  ],
+};
+const vocab = [
+  ["bonjour", "xin chào"],
+  ["au revoir", "tạm biệt"],
+  ["merci", "cảm ơn"],
+  ["s’il vous plaît", "làm ơn"],
+  ["je m’appelle", "tôi tên là"],
+  ["habiter", "sống, cư trú"],
+  ["travailler", "làm việc"],
+  ["aujourd’hui", "hôm nay"],
+  ["demain", "ngày mai"],
+  ["hier", "hôm qua"],
+  ["la gare", "nhà ga"],
+  ["une rue", "con đường"],
+  ["un repas", "bữa ăn"],
+  ["une boisson", "đồ uống"],
+  ["apprendre", "học"],
+  ["comprendre", "hiểu"],
+  ["réussir", "thành công"],
+  ["pourtant", "tuy nhiên"],
+  ["cependant", "tuy nhiên"],
+  ["un environnement", "môi trường"],
+  ["une expérience", "kinh nghiệm"],
+  ["une possibilité", "khả năng"],
+  ["un avantage", "ưu điểm"],
+  ["une conséquence", "hậu quả"],
+  ["durable", "bền vững"],
+];
+const questions = {
+  A1: [
+    [
+      "Comment tu t’appelles ?",
+      "Bạn tên là gì?",
+      ["Je m’appelle Lan.", "J’ai vingt ans.", "Je suis vietnamien."],
+      0,
+      "Je m’appelle… = Tôi tên là…",
+    ],
+    [
+      "« Merci » signifie…",
+      "« Merci » có nghĩa là…",
+      ["Xin chào", "Cảm ơn", "Tạm biệt"],
+      1,
+      "Merci = Cảm ơn.",
+    ],
+    [
+      "Complétez : J’___ à Hanoï.",
+      "Điền từ: Tôi sống ở Hà Nội.",
+      ["habite", "habites", "habitent"],
+      0,
+      "Avec « je », on écrit « j’habite ».",
+    ],
+    [
+      "Quel jour vient après lundi ?",
+      "Ngày nào sau thứ Hai?",
+      ["dimanche", "mardi", "vendredi"],
+      1,
+      "Mardi = thứ Ba.",
+    ],
+    [
+      "« La gare » signifie…",
+      "« La gare » nghĩa là…",
+      ["nhà ga", "trường học", "bệnh viện"],
+      0,
+      "La gare = nhà ga.",
+    ],
+  ],
+  A2: [
+    [
+      "Hier, nous ___ au cinéma.",
+      "Hôm qua chúng tôi đã đi xem phim.",
+      ["sommes allés", "allons", "irons"],
+      0,
+      "Passé composé de aller : être + allé(s).",
+    ],
+    [
+      "Je vais ___ Paris demain.",
+      "Ngày mai tôi sẽ đi Paris.",
+      ["à", "en", "au"],
+      0,
+      "On dit « aller à Paris ».",
+    ],
+    [
+      "Le contraire de « facile » est…",
+      "Trái nghĩa với « dễ » là…",
+      ["simple", "difficile", "rapide"],
+      1,
+      "Difficile = khó.",
+    ],
+    [
+      "Tu ___ prendre un parapluie. Il pleut.",
+      "Bạn nên mang ô. Trời đang mưa.",
+      ["devrais", "as", "es"],
+      0,
+      "« Tu devrais » diễn đạt lời khuyên.",
+    ],
+    [
+      "« Depuis deux ans » indique…",
+      "« Depuis deux ans » chỉ…",
+      [
+        "một thời điểm trong tương lai",
+        "khoảng thời gian bắt đầu trong quá khứ và còn tiếp diễn",
+        "một thói quen đã kết thúc",
+      ],
+      1,
+      "Depuis + durée thường diễn tả hành động còn tiếp diễn.",
+    ],
+  ],
+  B1: [
+    [
+      "La personne ___ parle est ma professeure.",
+      "Người đang nói là cô giáo của tôi.",
+      ["qui", "que", "dont"],
+      0,
+      "« Qui » là chủ ngữ của mệnh đề quan hệ.",
+    ],
+    [
+      "Il est fatigué, ___ il continue.",
+      "Anh ấy mệt, tuy nhiên vẫn tiếp tục.",
+      ["donc", "pourtant", "car"],
+      1,
+      "Pourtant = tuy nhiên.",
+    ],
+    [
+      "Si j’avais le temps, je ___ plus.",
+      "Nếu có thời gian, tôi sẽ đọc nhiều hơn.",
+      ["lis", "lirais", "ai lu"],
+      1,
+      "Si + imparfait → conditionnel présent.",
+    ],
+    [
+      "« Une candidature » signifie…",
+      "« Une candidature » nghĩa là…",
+      ["hồ sơ ứng tuyển", "một cuộc họp", "một kỳ nghỉ"],
+      0,
+      "Une candidature = hồ sơ/đơn ứng tuyển.",
+    ],
+    [
+      "Choisissez la phrase correcte.",
+      "Chọn câu đúng.",
+      [
+        "Il faut que tu viens.",
+        "Il faut que tu viennes.",
+        "Il faut que tu viendras.",
+      ],
+      1,
+      "Il faut que + subjonctif : que tu viennes.",
+    ],
+  ],
+  B2: [
+    [
+      "Bien que le sujet ___ complexe, il faut en parler.",
+      "Mặc dù vấn đề phức tạp, cần phải bàn luận.",
+      ["est", "soit", "sera"],
+      1,
+      "Bien que + subjonctif.",
+    ],
+    [
+      "Cette décision a été ___ hier.",
+      "Quyết định này đã được công bố hôm qua.",
+      ["annoncé", "annoncée", "annoncées"],
+      1,
+      "Voix passive: décision giống cái, số ít → annoncée.",
+    ],
+    [
+      "« Toutefois » exprime…",
+      "« Toutefois » diễn đạt…",
+      ["sự bổ sung", "sự đối lập/nhượng bộ", "mục đích"],
+      1,
+      "Toutefois = tuy nhiên, dù vậy.",
+    ],
+    [
+      "Si nous avions su, nous ___ autrement.",
+      "Nếu biết trước, chúng tôi đã hành động khác.",
+      ["agirons", "aurions agi", "agissons"],
+      1,
+      "Si + plus-que-parfait → conditionnel passé.",
+    ],
+    [
+      "Une source fiable est une source…",
+      "Nguồn đáng tin cậy là nguồn…",
+      ["vérifiée et crédible", "anonyme et fausse", "ancienne uniquement"],
+      0,
+      "Fiable = đáng tin cậy.",
+    ],
+  ],
+};
+let state = JSON.parse(
+  localStorage.getItem("fp_state") ||
+    '{"done":[],"scores":[],"words":[],"days":[],"last":null}'
+);
+function save() {
+  localStorage.setItem("fp_state", JSON.stringify(state));
+  updateStats();
+}
+function showView(id) {
+  document
+    .querySelectorAll(".view")
+    .forEach((x) => x.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document
+    .querySelectorAll(".navbtn")
+    .forEach((x) => x.classList.toggle("active", x.dataset.view === id));
+  if (id === "progress") renderProgress();
+  if (id === "vocab") renderWords();
+  window.scrollTo(0, 0);
+}
+document
+  .querySelectorAll(".navbtn")
+  .forEach((b) => (b.onclick = () => showView(b.dataset.view)));
+function levelCards(target) {
+  document.getElementById(target).innerHTML = ["A1", "A2", "B1", "B2"]
+    .map(
+      (l, i) =>
+        `<button class="level" onclick="selectLevel('${l}')"><strong>${l}</strong><b>${ ["Débutant", "Élémentaire", "Intermédiaire", "Avancé"][i] }</b><small>${ [ "Làm quen tiếng Pháp", "Giao tiếp quen thuộc", "Giao tiếp độc lập", "Sử dụng thành thạo", ][i] }</small><div class="progress"><i style="width:${levelProgress( l )}%"></i></div><small>${levelProgress(l)}% hoàn thành</small></button>`
+    )
+    .join("");
+}
+function levelProgress(l) {
+  let ids = units[l].map((_, i) => l + "-" + i);
+  return Math.round(
+    (ids.filter((x) => state.done.includes(x)).length / ids.length) * 100
+  );
+}
+function selectLevel(l) {
+  showView("courses");
+  document.getElementById("courseDetail").innerHTML = `<h2>${l} – ${levelName( l )}</h2><div class="lessonlist">${units[l] .map( (u, i) => `<div class="lessoncard"><div><span class="tag">${l} · ${ state.done.includes(l + "-" + i) ? "ĐÃ HOÀN THÀNH" : "CHƯA HỌC" }</span><h3>${u[0]}</h3><p>${u[1]} · ${ u[2] }</p></div><button class="btn" onclick="openLesson('${l}',${i})">Vào bài học →</button></div>` ) .join("")}</div>`;
+}
+function levelName(l) {
+  return {
+    A1: "Débutant",
+    A2: "Élémentaire",
+    B1: "Intermédiaire",
+    B2: "Avancé",
+  }[l];
+}
+function openLesson(l, i) {
+  let u = units[l][i];
+  showView("lesson");
+  document.getElementById(
+    "lessonContent"
+  ).innerHTML = `<span class="tag">${l} · ${u[0]}</span><h2>${ u[1] }</h2><div class="panel"><h3>🎯 Objectif – Mục tiêu</h3><p>${ u[2] }</p><h3>📖 Exemple – Ví dụ</h3><p style="font-size:19px;color:#173b72;font-weight:650">${ u[3] }</p><button class="btn secondary" onclick="speak(${JSON.stringify( u[3] )})">🔊 Nghe phát âm</button><h3 style="margin-top:20px">🗂️ Vocabulaire – Từ vựng</h3><p>${ u[4] }</p><h3>✍️ À vous ! – Thực hành</h3><p>Hãy đọc lại câu ví dụ, chú ý cấu trúc ngữ pháp và thử tự đặt một câu tương tự.</p><button class="btn" onclick="lessonQuiz('${l}',${i})">Làm bài kiểm tra cuối bài</button></div>`;
+}
+function lessonQuiz(l, i) {
+  window.lessonContext = { l, i };
+  document.getElementById("practiceLevel").value = l;
+  showView("practice");
+  startQuiz();
+}
+let current = [],
+  answers = {},
+  qIndex = 0;
+function startQuiz() {
+  let l = document.getElementById("practiceLevel").value;
+  current = questions[l].map((q, i) => ({ ...{ q }, id: i }));
+  answers = {};
+  qIndex = 0;
+  renderQuestion(l);
+}
+function renderQuestion(l) {
+  let area = document.getElementById("quizArea");
+  if (qIndex >= current.length) {
+    let score = current.filter((q, i) => answers[i] === q.q[3]).length;
+    let pct = Math.round((score / current.length) * 100);
+    state.scores.push({
+      level: l,
+      score,
+      pct,
+      date: new Date().toLocaleDateString("vi-VN"),
+    });
+    if (window.lessonContext && window.lessonContext.l === l) {
+      let id = l + "-" + window.lessonContext.i;
+      if (!state.done.includes(id)) state.done.push(id);
+      window.lessonContext = null;
+    }
+    state.days.push(new Date().toDateString());
+    save();
+    area.innerHTML = `<div class="panel"><h2>Résultat – Kết quả</h2><h1 style="color:var(--blue);font-size:42px">${score}/${ current.length }</h1><p>Bạn đạt ${pct}% số câu đúng.</p><p>${ pct >= 80 ? "Excellent ! Rất tốt!" : pct >= 60 ? "Bien joué ! Hãy tiếp tục luyện tập." : "Cố gắng ôn lại kiến thức và thử lại nhé!" }</p><button class="btn" onclick="startQuiz()">Làm lại</button></div>`;
+    return;
+  }
+  let q = current[qIndex].q;
+  area.innerHTML = `<div class="between"><span class="tag">${l} · Question ${ qIndex + 1 }/${current.length}</span><span class="muted">${Math.round( (qIndex / current.length) * 100 )}% </span></div><div class="question"><h3>${q[0]}</h3><p class="muted">${ q[1] }</p>${q[2] .map( (o, i) => `<button class="option ${ answers[qIndex] === i ? "selected" : "" }" onclick="choose(${i})">${String.fromCharCode(65 + i)}. ${o}</button>` ) .join( "" )}</div><div class="between"><button class="btn secondary" onclick="qIndex=Math.max(0,qIndex-1);renderQuestion('${l}')" ${ qIndex === 0 ? "disabled" : "" }>← Trước</button><button class="btn" onclick="nextQuestion('${l}')" ${ answers[qIndex] === undefined ? "disabled" : "" }>${ qIndex === current.length - 1 ? "Nộp bài" : "Tiếp theo →" }</button></div>`;
+}
+function choose(i) {
+  answers[qIndex] = i;
+  renderQuestion(document.getElementById("practiceLevel").value);
+}
+function nextQuestion(l) {
+  qIndex++;
+  renderQuestion(l);
+}
+function speak(t) {
+  if (!("speechSynthesis" in window)) {
+    alert("Trình duyệt này chưa hỗ trợ đọc văn bản.");
+    return;
+  }
+  let u = new SpeechSynthesisUtterance(t);
+  u.lang = "fr-FR";
+  u.rate = 0.88;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+function renderWords() {
+  let q = (document.getElementById("wordSearch")?.value || "").toLowerCase();
+  let arr = vocab.filter((w) => w.join(" ").toLowerCase().includes(q));
+  document.getElementById("wordList").innerHTML =
+    arr
+      .map(
+        (w, i) =>
+          `<div class="word"><div><strong>${ w[0] }</strong><br><span class="muted">${ w[1] }</span></div><div class="row"><button class="btn secondary" onclick="speak(${JSON.stringify( w[0] )})">🔊</button><button class="btn ghost" onclick="markWord(${JSON.stringify( w[0] )})">${state.words.includes(w[0]) ? "✓" : "Ôn"}</button></div></div>`
+      )
+      .join("") || '<div class="empty">Không tìm thấy từ phù hợp.</div>';
+}
+function markWord(w) {
+  if (!state.words.includes(w)) state.words.push(w);
+  save();
+  renderWords();
+}
+function updateStats() {
+  document.getElementById("statDone").textContent = state.done.length;
+  document.getElementById("statScore").textContent = state.scores.length
+    ? Math.round(
+        state.scores.reduce((a, b) => a + b.pct, 0) / state.scores.length
+      ) + "%"
+    : "—";
+  document.getElementById("statWords").textContent = state.words.length;
+  document.getElementById("statStreak").textContent = new Set(state.days).size;
+  levelCards("homeLevels");
+  levelCards("courseLevels");
+}
+function renderProgress() {
+  document.getElementById(
+    "progressContent"
+  ).innerHTML = `<div class="stats"><div class="stat"><b>${ state.done.length }</b><span>Bài đã hoàn thành</span></div><div class="stat"><b>${ state.scores.length }</b><span>Lượt kiểm tra</span></div><div class="stat"><b>${ state.words.length }</b><span>Từ đã ôn</span></div><div class="stat"><b>${ state.scores.length ? Math.round( state.scores.reduce((a, b) => a + b.pct, 0) / state.scores.length ) : 0 }%</b><span>Điểm trung bình</span></div></div><div class="panel"><h3>Tiến độ theo cấp độ</h3>${[ "A1", "A2", "B1", "B2", ] .map( (l) => `<p><b>${l}</b> – ${levelProgress( l )}%</p><div class="progress"><i style="width:${levelProgress( l )}%"></i></div>` ) .join( "" )}</div><div class="panel" style="margin-top:13px"><h3>Lịch sử kiểm tra</h3>${ state.scores.length ? state.scores .slice() .reverse() .map( (s) => `<div class="word"><span>${s.level} · ${s.date}</span><b>${s.score} câu đúng (${s.pct}%)</b></div>` ) .join("") : "<p class='muted'>Chưa có kết quả. Hãy làm bài luyện tập đầu tiên!</p>" }</div><div style="margin-top:13px"><button class="btn ghost" onclick="if(confirm('Bạn có chắc muốn xóa toàn bộ tiến độ trên thiết bị này?')){state={done:[],scores:[],words:[],days:[],last:null};save();renderProgress()}">Xóa dữ liệu tiến độ</button></div>`;
+}
+function init() {
+  levelCards("homeLevels");
+  levelCards("courseLevels");
+  updateStats();
+  renderWords();
+  document.getElementById("userLabel").textContent = "Mon espace";
+  if (state.done.length) {
+    document.getElementById(
+      "continueBox"
+    ).innerHTML = `Bạn đã hoàn thành ${state.done.length} bài. <button class="btn" onclick="showView('courses')">Tiếp tục học</button>`;
+  }
+}
+init();
